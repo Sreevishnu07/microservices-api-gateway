@@ -1,0 +1,26 @@
+services:
+  orderservice:
+    build: ./orderservice
+    container_name: orderservice
+    ports:
+      - "3002:3002"
+    restart: unless-stopped
+   
+  userservice:
+    build: ./userservice
+    container_name: userservice
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+
+  gateway:
+    image: nginx:latest
+    container_name: gateway
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - orderservice
+      - userservice
