@@ -26,14 +26,14 @@ This project implements a lightweight **API Gateway pattern** where all client t
 ## Architecture
 
 ```
-                          ┌──────────────────────────────────────────────┐
-                          │               Docker Network                 │
-                          │                                              │
+                          ┌─────────────────────────────────────────────┐
+                          │               Docker Network                │
+                          │                                             │
                           │   ┌──────────────────────────────────────┐  │
   Client (Browser/curl)   │   │          Nginx API Gateway           │  │
   ─────────────────────►  │   │            port 80 (public)          │  │
-       HTTP Request        │   └──────────────┬───────────────────────┘  │
-                          │                  │                           │
+       HTTP Request           └──────────────┬───────────────────────┘  │
+                          │                  │                          |
                           │       ┌──────────┴──────────┐               │
                           │       ▼                     ▼               │
                           │  ┌──────────┐         ┌──────────┐          │
@@ -41,8 +41,8 @@ This project implements a lightweight **API Gateway pattern** where all client t
                           │  │ Service  │         │ Service  │          │
                           │  │ :3001    │         │ :3002    │          │
                           │  └──────────┘         └──────────┘          │
-                          │                                              │
-                          └──────────────────────────────────────────────┘
+                          │                                             │
+                          └─────────────────────────────────────────────┘
 
   Path Routing:
   /users/*   ──────────►  User Service
