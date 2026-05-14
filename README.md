@@ -20,7 +20,7 @@ Client
 [Nginx Gateway]
    |         |
    v         v
-User Service   Order Service
+User Service Order Service
 ```
 
 ## Tech Stack
