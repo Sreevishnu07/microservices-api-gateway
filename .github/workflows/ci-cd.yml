@@ -80,7 +80,7 @@ jobs:
         run: |
           docker build \
           -t ${{ secrets.DOCKER_USERNAME }}/revpnginx:latest \
-          -t ${{ secrets.DOCKER_USERNAME }}/revpnginx:${{ steps.vars.outputs.TAG }}
+          -t ${{ secrets.DOCKER_USERNAME }}/revpnginx:${{ steps.vars.outputs.TAG }} ./gateway
 
       - name: Docker push
         run: |
